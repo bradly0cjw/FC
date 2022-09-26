@@ -21,4 +21,8 @@ def crazy():
     print(opt)
 
 while True:
-    crazy()
+    try:
+       crazy()
+    except:
+        print("err")
+        break
