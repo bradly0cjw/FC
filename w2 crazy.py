@@ -22,7 +22,7 @@ def crazy():
 
 while True:
     try:
-       crazy()
+        crazy()
     except:
         print("err")
         break
