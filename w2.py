@@ -23,5 +23,4 @@ print(opt)
 #     try:
 #        crazy()
 #     except:
-#         print("err")
 #         break

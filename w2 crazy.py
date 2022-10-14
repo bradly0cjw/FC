@@ -24,5 +24,4 @@ while True:
     try:
         crazy()
     except:
-        print("err")
         break
