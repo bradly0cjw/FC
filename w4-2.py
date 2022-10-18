@@ -1,6 +1,5 @@
 import math
 while True:
-    binary=[]
     denormalize=0
     eval=float(input())
     num=int((math.log(abs(float(eval)),2))//1)
@@ -10,6 +9,7 @@ while True:
         exponent=0
     num2=(((abs(eval)/(2**(num-denormalize))))*(2**denormalize))%1
 
+    # binary=[]
     # for i in range(0,23):
     #     num3=(num2*2//1,num2*2%1)
     #     num2=num3[1]
