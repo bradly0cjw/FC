@@ -16,7 +16,6 @@ while True:          # machine cycle 機器循環
     Md=(ir>>4)%(2**8)   # Ms 來源記憶體位址, Md 目的地記憶體位址
     Ms=(ir)%(2**8)
     pc=pc+1         # pc 指向下一指令所在位址
-    # print(f"{ir:b},{opcode:b},{Rd:b},{Rs1:b},{Rs2:b},{Ms:b},{Md:b}",pc)
     if opcode==0:      # 解碼執行指令碼 (參考指令表)
         break
     elif opcode==1:
