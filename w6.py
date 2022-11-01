@@ -23,12 +23,12 @@ while True:          # machine cycle 機器循環
         try:
             register[Rd]=memory[Ms]
         except:
-            register[Rd]=input()
+            register[Rd]=int(input(),16)
     elif opcode==2:
         try:
             memory[Md]=register[Rs2]
         except:
-            print(register[Rs2])    
+            print(f"{register[Rs2]:X}")    
     elif opcode==3:
         register[Rd]=register[Rs1]+register[Rs2]
     elif opcode==4:
@@ -36,13 +36,13 @@ while True:          # machine cycle 機器循環
     elif opcode==5:
         register[Rd]=register[Rs1]
     elif opcode==6:
-        register[Rd]=~register[Rs1]
+        register[Rd]=((0xFFFF-register[Rs1]+1))%(2**16)
     elif opcode==7:
         register[Rd]=register[Rs1]&register[Rs2]
     elif opcode==8:
         register[Rd]=register[Rs1]|register[Rs2]
     elif opcode==9:
-        register[Rd]=register[Rs1]&register[Rs2]
+        register[Rd]=register[Rs1]^register[Rs2]
     elif opcode==10:
         register[Rd]=register[Rd]+1
     elif opcode==11:
@@ -62,11 +62,8 @@ while True:          # machine cycle 機器循環
         if register[0]!= register[Rd]:
             pc=register[Rs1]
     elif opcode==14:
-        register[Rd]=input()
+        register[Rd]=int(input(),16)
     elif opcode==15:
-        print(register[Rs2])
+        print(f"{register[Rs2]:X}") 
     else:
         break
-# 0001 0001 1111 1110
-# 0010 1111 1111 0001
-# 0000 0000 0000 0000
