@@ -23,7 +23,7 @@ while True:          # machine cycle 機器循環
         try:
             register[Rd]=memory[Ms]
         except:
-            register[Rd]=int(input(),16)
+            register[Rd]=int(input())
     elif opcode==2:
         try:
             memory[Md]=register[Rs2]
@@ -36,7 +36,7 @@ while True:          # machine cycle 機器循環
     elif opcode==5:
         register[Rd]=register[Rs1]
     elif opcode==6:
-        register[Rd]=((0xFFFF-register[Rs1]+1))%(2**16)
+        register[Rd]=((0xFFFF-register[Rs1]))
     elif opcode==7:
         register[Rd]=register[Rs1]&register[Rs2]
     elif opcode==8:
@@ -48,21 +48,15 @@ while True:          # machine cycle 機器循環
     elif opcode==11:
         register[Rd]=register[Rd]-1
     elif opcode==12:
-        rot=[]
-        rot=(register[Rd])
-        n=len(rot)
-        if register[Rs2]==0:
-            first=rot[n-int(register[Rs1]):]
-            last=rot[:n-int(register[Rs1])]
-        else:
-            first=rot[int(register[Rs1])-n:]
-            last=rot[:int(register[Rs1])-n]
-        register[Rd]=(first+last)
+        if Rs2==0:
+            register[Rd]=register[Rd]//2**Rs1+(register[Rd]%(2**Rs1))*(2**(16-Rs1))
+        elif Rs2==1:
+            register[Rd]=register[Rd]//2**(16-Rs1)+(register[Rd]%(2**(16-Rs1)))*(2**Rs1)
     elif opcode==13:
         if register[0]!= register[Rd]:
-            pc=register[Rs1]
+            pc=Ms
     elif opcode==14:
-        register[Rd]=int(input(),16)
+        register[Rd]=int(input())
     elif opcode==15:
         print(f"{register[Rs2]:X}") 
     else:
