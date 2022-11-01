@@ -10,13 +10,13 @@ for i in range(noi):    # load instructions to memeory
 while True:          # machine cycle 機器循環
     ir=memory[pc]     # 指令抓取 fetch instruction
     opcode=ir>>12   # 解碼 取得op code 
-    Rd=(ir<<4)>>12  # 取得 Rd 目的地暫存器 ,Rs1 來源暫存器1 ,Rs2 來源暫存器2
-    Rs1=(ir<<8)>>121
-    Rs2=(ir<<12)>>12
-    Ms=(ir<<8)>>8   # Ms 來源記憶體位址, Md 目的地記憶體位址
-    Md=(ir<<4)>>8
+    Rd=(ir>>8)%(2**4)  # 取得 Rd 目的地暫存器 ,Rs1 來源暫存器1 ,Rs2 來源暫存器2
+    Rs1=(ir>>4)%(2**4)
+    Rs2=(ir)%(2**4)
+    Md=(ir>>4)%(2**8)   # Ms 來源記憶體位址, Md 目的地記憶體位址
+    Ms=(ir)%(2**8)
     pc=pc+1         # pc 指向下一指令所在位址
-    print(f"{ir:b},{opcode:b},{Rd:b},{Rs1:b},{Rs2:b},{Ms:b},{Md:b}",pc)
+    # print(f"{ir:b},{opcode:b},{Rd:b},{Rs1:b},{Rs2:b},{Ms:b},{Md:b}",pc)
     if opcode==0:      # 解碼執行指令碼 (參考指令表)
         break
     elif opcode==1:
