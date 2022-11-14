@@ -3,12 +3,12 @@ def selectionsort(data):
         m=10000000000
         for i in range(wall,len(data)):
             if data[i]<m:
-                m=data[i];
-                idx=i;
+                m=data[i]
+                idx=i
             data[wall],data[idx]=data[idx],data[wall]
         return data
-unsorted=[2,9,4,8,5,1,7,3,6];
-sort=selectionsort(unsorted);
+unsorted=[2,9,4,8,5,1,7,3,6]
+sort=selectionsort(unsorted)
 print(sort) 
 
 def bubblesort(data):
@@ -17,8 +17,8 @@ def bubblesort(data):
             if data[i]<data[i-1]:
                 data[i],data[i-1]=data[i-1],data[i]
     return data    
-unsorted=[2,9,4,8,5,1,7,3,6];
-sort=bubblesort(unsorted);
+unsorted=[2,9,4,8,5,1,7,3,6]
+sort=bubblesort(unsorted)
 print(sort)
 
 def insertionsort(data):
@@ -29,8 +29,8 @@ def insertionsort(data):
             else:
                 break    
     return data    
-unsorted=[2,9,4,8,5,1,7,3,6];
-sort=insertionsort(unsorted);
+unsorted=[2,9,4,8,5,1,7,3,6]
+sort=insertionsort(unsorted)
 print(sort)
 
 def binarySearch4sqrt(N,f,l):
