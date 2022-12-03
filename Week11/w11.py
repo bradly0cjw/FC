@@ -2,14 +2,22 @@ global count,bs
 bs=8
 count=0
 positions=[0]*8
+# def plotBoard(positions,bs):
+#     for i in range(0,8):
+#         for j in range(0,positions[i]):
+#             print("*",end="")
+#         print("Q",end="")
+#         for k in range(positions[i],7):
+#             print("*",end="")
+#         print()
+# better solution
 def plotBoard(positions,bs):
-    for i in range(0,8):
-        for j in range(0,positions[i]):
-            print("*",end="")
-        print("Q",end="")
-        for k in range(positions[i],7):
-            print("*",end="")
-        print()
+    for i in positions:    # add code to produce the 8 x 8 plot
+        board=["*"]*bs
+        board[i]="Q"
+        for j in board:
+            print(j,end="")
+        print() 
 def legal(positions,r,c):
     for i in range(r):
         if positions[i]==c:
