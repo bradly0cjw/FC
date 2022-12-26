@@ -1,5 +1,5 @@
-# a=input()
-# a=list(map(int,a.split("  ")))
+a=input()
+a=list(map(int,a.split(" ")))
 class Node:
     def __init__(self,key):
         self.key=key
@@ -28,8 +28,24 @@ def insertBST(tree,target):
     elif tree.key<target:
         tree.rptr=insertBST(tree.rptr,target)
     return tree
-a=[9,5,3,6,10,13]
+def maxbst(tree):
+    if tree==None:
+        return 0
+    return(max(1+maxbst(tree.rptr),1+maxbst(tree.lptr)))
 bst=None
 for i in a:
     bst=insertBST(bst,i)
-preorderTraverse(bst)
+print(maxbst(bst)-1)
+# def heightBST(tree):
+#     if tree==None:
+#         return 0
+#     if tree.lptr==None and tree.rptr==None:
+#         return 0
+#     elif tree.lptr==None:
+#         return heightBST(tree.rptr)+1
+#     elif tree.rptr==None:
+#         return heightBST(tree.lptr)+1
+#     if heightBST(tree.lptr)>heightBST(tree.rptr):
+#         return heightBST(tree.lptr)+1
+#     else:
+#         return heightBST(tree.rptr)+1    
